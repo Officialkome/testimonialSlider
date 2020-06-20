@@ -30,6 +30,8 @@
 .slides-wrapper{
   display: flex;
  align-items: center;
+ width: 100%;
+ position: relative;
 }
 .slide{
   display: none;
@@ -99,6 +101,15 @@ button.prev{
 }
 .attribution { font-size: 11px; text-align: center; margin-top: 20px;}
 .attribution a { color: hsl(228, 45%, 44%); }
+
+@media only screen and (max-width: 500px){
+  body{
+    font-size: 20px;
+  }
+  .client-image img{
+    max-width: 300px;
+  }
+}
 
 @media (min-width: 1160px){
   .active{
