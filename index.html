@@ -61,7 +61,7 @@
   top: 85%;
   left: 35%;
   column-gap: 15px;
-  
+  z-index: 1;
 }
 button{
   background: none;
@@ -72,6 +72,9 @@ button{
   margin-top: -2px;
   font-size: 20px;
   outline: none;
+}
+button.prev{
+  color: hsl(240, 18%, 77%);
 }
 /* text and attribution styles */
 
@@ -151,7 +154,7 @@ button{
       <div class="slide active">
         <div class="client-image">
           <div class="button-container">
-            <button class="prev" onclick="sliderPrevious()">&lt;</button>
+            <button class="prev" disabled onclick="sliderPrevious()">&lt;</button>
             <button class="next" onclick="sliderNext()">&gt;</button>
           </div>
           <img src="images/image-tanya.jpg" alt="" class="profile-image">
@@ -202,13 +205,12 @@ const nextButton = document.querySelector('.next');
 const nextBtnCopy = document.querySelector('.next-copy');
 const slides = document.querySelectorAll('.slide');
 let currentlySelectedSlide = 0;
-
 function sliderPrevious() {
     slides[currentlySelectedSlide].classList.remove('active');
     currentlySelectedSlide--;
     slides[currentlySelectedSlide].classList.add('active');
     nextButton.disabled = false;
-    if (slides[currentlySelectedSlide] === slides[0]) {
+    if (currentlySelectedSlide === 0) {
         previousButton.disabled = true;
         previousButton.style.color = "hsl(240, 18%, 77%)";
     }
